@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Born date</th>
+      <th>Cantidad visitas</th>
+      <th>Average weight</th>
+      <th>Average height</th>
+      <th>Max weight</th>
+      <th>Max height</th>
+      <th>Historial</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.breed %></td>
+        <td><%= pet.born_date %></td>
+        <td><%= pet.visits_count %></td>
+        <td><%= pet.average_weight.to_f.round(2) %></td>
+        <td><%= pet.average_height.to_f.round(1) %></td>
+        <td><%= pet.max_weight %></td>
+        <td><%= pet.max_height %></td>
+        <td><%= link_to 'Show', pet %></td>
+        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pet', new_pet_path %>&ensp;
+<%= link_to 'Pet Histories', pet_histories_path %>&ensp;
+<%= link_to 'Clients', clients_path %>

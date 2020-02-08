@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h3><strong>Historial:</strong></h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>Diagnosis</th>
+      <th>Pet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @pet.pet_histories.each do |detail| %>
+          <tr>
+            <td><%= detail.weight %></td>
+            <td><%= detail.height %></td>
+            <td><%= detail.diagnosis %></td>
+            <td><%= detail.pet.name %></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back', pets_path %>
